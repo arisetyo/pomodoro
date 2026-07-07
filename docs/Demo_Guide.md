@@ -100,7 +100,7 @@ This is the core of the demo: driving development through the OpenSpec SDD workf
 
 #### 4.a — Explore the domain
 
-Run the OpenSpec explore command:
+Use "Plan" mode and run the OpenSpec explore command:
 
 ```
 /opsx:explore
@@ -116,7 +116,7 @@ This document explains the Pomodoro Technique — the six steps, the role of bre
 
 #### 4.b — Propose the MVP
 
-Run:
+Use "Agent" mode and run:
 
 ```
 /opsx:propose create-mvp
