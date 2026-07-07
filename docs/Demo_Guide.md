@@ -217,7 +217,7 @@ Run this prompt on Copilot Chat:
 
 ```
 1. Create a new `/tests` directory.
-2. Use `rtk read graphify-out/graph.json` to find high-centrality modules and critical paths that need testing (eg. god nodes, complex logic, and critical call-flow paths).
+2. Use `rtk read graphify-out/GRAPH_REPORT.md` to find high-centrality modules and critical paths that need testing (eg. god nodes, complex logic, and critical call-flow paths).
 3. Generate tests for the identified components in the `/tests` directory that use `pytest`.
 4. Generate test coverage report using `pytest-cov`
 5. Find untested patterns with `ast-grep` and improve the coverage results. 
