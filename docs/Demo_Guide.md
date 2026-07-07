@@ -70,7 +70,9 @@ Run the following in the terminal:
 rtk gain
 ```
 
-This displays your current **token savings statistics** from using RTK-prefixed commands. Take note of the baseline numbers — you'll compare against this again in Steps 6 and 7.
+![rtk-1](images/rtk-1.png)
+
+This displays your current **token savings statistics** from using RTK-prefixed commands. Take note of the baseline numbers — you'll compare against this again in Steps 7 and 8. Focus on the number of "Tokens saved" (in this example, it is currently at 4.5K).
 
 ```bash
 rtk gain --history
@@ -91,6 +93,8 @@ Review:
 - Token usage and efficiency indicators
 
 This is your **baseline snapshot**. You'll return to the dashboard at the end of the demo to compare progress.
+
+![coach-1](images/coach-1.png)
 
 ---
 
@@ -114,6 +118,8 @@ This document explains the Pomodoro Technique — the six steps, the role of bre
 
 > 💡 Goal: understand the domain before writing any specs or code.
 
+![1](images/1.png)
+
 #### 4.b — Propose the MVP
 
 Use "Agent" mode and run:
@@ -121,6 +127,8 @@ Use "Agent" mode and run:
 ```
 /opsx:propose create-mvp
 ```
+
+![2](images/2.png)
 
 Create a proposal named **`create-mvp`**. This proposal should cover the minimal viable Pomodoro app:
 
@@ -140,6 +148,8 @@ Run:
 /opsx:apply
 ```
 
+![3](images/3.png)
+
 This implements the tasks defined in the `create-mvp` proposal. The agent will:
 
 1. Read the delta specs
@@ -155,7 +165,11 @@ uv run uvicorn app.main:app --reload
 
 Open the displayed local URL and try the timer.
 
+![4](images/4.png)
+
 #### 4.d — Archive the change
+
+![5](images/5.png)
 
 Once the MVP is complete and verified, run:
 
@@ -195,7 +209,11 @@ Generate an interactive HTML visualization:
 graphify cluster-only .
 ```
 
+![graphify-1](images/graphify-1.png)
+
 Open the resulting HTML file in a browser and walk through the cluster view of the codebase architecture.
+
+![graphify-2](images/graphify-2.png)
 
 #### 5.c — Create and show the callflow HTML
 
@@ -225,6 +243,8 @@ Run this prompt on Copilot Chat:
 
 > 💡 Once the AI agent has completed the task refresh the Graphify knowledge graph.
 
+![6](images/6.png)
+
 ---
 
 ### Step 7 — Check `rtk gain` again
@@ -236,6 +256,10 @@ rtk gain
 ```
 
 Compare the new savings numbers against the baseline from **Step 2**. You should see a noticeable increase from all the `rtk`-prefixed commands run during the demo (builds, tests, git operations, etc.).
+
+After completing the unit tests, the value of "Tokens saved" is at 5.1K, which corresponds to 0.6K tokens saved during that session.
+
+![rtk-2](images/rtk-2.png)
 
 ```bash
 rtk gain --history
@@ -254,6 +278,8 @@ Compare against the baseline from **Step 3**:
 - Progress on tasks completed
 - Token efficiency metrics
 - Any new coaching recommendations
+
+![coach-2](images/coach-2.png)
 
 > 💡 Wrap-up: the dashboard should reflect the work completed through the OpenSpec workflow and the token savings captured by RTK throughout the session.
 
@@ -279,3 +305,11 @@ By the end of this demo, you will have:
 - Added unit tests and coverage with measurable token savings
 - Measured concrete token savings from RTK
 - Tracked your AI-assisted development progress end-to-end
+
+### Credit use
+
+The whole process, costs US$2.07 (initial credit was US$10.00). This includes:
+- planning and creating the demo's guideline
+- creating the Pomodoro app based on the guideline
+
+![credit-3](images/credit-3_final.png)
