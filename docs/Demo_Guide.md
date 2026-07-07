@@ -209,7 +209,83 @@ Open the generated callflow HTML and demonstrate how to trace a request path thr
 
 ---
 
-### Step 6 — Check `rtk gain` again
+### Step 6 — Add unit tests and coverage report
+
+This step showcases one of RTK's highest savings rates: `rtk pytest` delivers ~90% token reduction. Running tests multiple times during TDD accumulates visible savings in `rtk gain`.
+
+#### 6.a — Install test dependencies
+
+```bash
+source .venv/bin/activate
+uv pip install pytest pytest-cov
+```
+
+#### 6.b — Identify components to test using Graphify
+
+Use the knowledge graph to find high-centrality modules and critical paths that need testing:
+
+```bash
+rtk read graphify-out/graph.json
+```
+
+Focus on god nodes, complex logic, and critical call-flow paths (e.g. timer logic, session management).
+
+#### 6.c — Create unit tests
+
+Create a `tests/` directory and have the AI agent generate tests for the identified components:
+
+```bash
+mkdir -p tests
+```
+
+#### 6.d — Run tests without RTK (baseline for comparison)
+
+```bash
+source .venv/bin/activate
+uv run pytest tests/ -v
+```
+
+Note the verbose, token-heavy output.
+
+#### 6.e — Run tests with RTK (token-optimized)
+
+```bash
+rtk pytest tests/
+```
+
+Compare the output to the previous run — highlight the ~90% token reduction.
+
+#### 6.f — Generate coverage report
+
+```bash
+rtk pytest tests/ --cov=app --cov-report=term-missing
+```
+
+Shows covered vs. uncovered code paths in a token-optimized format.
+
+#### 6.g — Find untested patterns with ast-grep
+
+```bash
+ast-grep --pattern 'def $NAME($$$ARGS):' --lang python app/
+```
+
+Cross-reference the results with your test files to identify functions that still need coverage.
+
+#### 6.h — Regenerate the Graphify graph
+
+Include the new test files in the knowledge graph:
+
+```bash
+graphify .
+```
+
+Show how the graph now reflects test files and their relationships to source code.
+
+> 💡 Talking point: this step provides a clear before/after comparison of token usage with and without `rtk`, making the value of token optimization tangible.
+
+---
+
+### Step 7 — Check `rtk gain` again
 
 Run:
 
@@ -227,7 +303,7 @@ Highlight which command categories contributed the most savings.
 
 ---
 
-### Step 7 — Check the AI Engineering Coach dashboard again
+### Step 8 — Check the AI Engineering Coach dashboard again
 
 Reopen the **AI Engineering Coach** dashboard in VS Code.
 
@@ -250,12 +326,14 @@ Compare against the baseline from **Step 3**:
 | 3 | Baseline dev status | AI Engineering Coach |
 | 4 | Build the MVP via SDD | OpenSpec |
 | 5 | Generate codebase knowledge graph | Graphify |
-| 6 | Final token savings | `rtk gain` |
-| 7 | Final dev status | AI Engineering Coach |
+| 6 | Add unit tests and coverage | `rtk pytest`, `ast-grep` |
+| 7 | Final token savings | `rtk gain` |
+| 8 | Final dev status | AI Engineering Coach |
 
 By the end of this demo, you will have:
 
-- ✅ Built a working Pomodoro web app using a spec-driven workflow
-- ✅ Generated a navigable knowledge graph of the codebase
-- ✅ Measured concrete token savings from RTK
-- ✅ Tracked your AI-assisted development progress end-to-end
+- Built a working Pomodoro web app using a spec-driven workflow
+- Generated a navigable knowledge graph of the codebase
+- Added unit tests and coverage with measurable token savings
+- Measured concrete token savings from RTK
+- Tracked your AI-assisted development progress end-to-end
