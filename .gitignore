@@ -18,3 +18,4 @@ __pycache__/
 # Coverage
 .coverage
 htmlcov/
+tests/__pycache__/
