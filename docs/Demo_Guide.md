@@ -213,75 +213,17 @@ Open the generated callflow HTML and demonstrate how to trace a request path thr
 
 This step showcases one of RTK's highest savings rates: `rtk pytest` delivers ~90% token reduction. Running tests multiple times during TDD accumulates visible savings in `rtk gain`.
 
-#### 6.a — Install test dependencies
+Run this prompt on Copilot Chat:
 
-```bash
-source .venv/bin/activate
-uv pip install pytest pytest-cov
+```
+1. Create a new `/tests` directory.
+2. Use `rtk read graphify-out/graph.json` to find high-centrality modules and critical paths that need testing (eg. god nodes, complex logic, and critical call-flow paths).
+3. Generate tests for the identified components in the `/tests` directory that use `pytest`.
+4. Generate test coverage report using `pytest-cov`
+5. Find untested patterns with `ast-grep` and improve the coverage results. 
 ```
 
-#### 6.b — Identify components to test using Graphify
-
-Use the knowledge graph to find high-centrality modules and critical paths that need testing:
-
-```bash
-rtk read graphify-out/graph.json
-```
-
-Focus on god nodes, complex logic, and critical call-flow paths (e.g. timer logic, session management).
-
-#### 6.c — Create unit tests
-
-Create a `tests/` directory and have the AI agent generate tests for the identified components:
-
-```bash
-mkdir -p tests
-```
-
-#### 6.d — Run tests without RTK (baseline for comparison)
-
-```bash
-source .venv/bin/activate
-uv run pytest tests/ -v
-```
-
-Note the verbose, token-heavy output.
-
-#### 6.e — Run tests with RTK (token-optimized)
-
-```bash
-rtk pytest tests/
-```
-
-Compare the output to the previous run — highlight the ~90% token reduction.
-
-#### 6.f — Generate coverage report
-
-```bash
-rtk pytest tests/ --cov=app --cov-report=term-missing
-```
-
-Shows covered vs. uncovered code paths in a token-optimized format.
-
-#### 6.g — Find untested patterns with ast-grep
-
-```bash
-ast-grep --pattern 'def $NAME($$$ARGS):' --lang python app/
-```
-
-Cross-reference the results with your test files to identify functions that still need coverage.
-
-#### 6.h — Regenerate the Graphify graph
-
-Include the new test files in the knowledge graph:
-
-```bash
-graphify .
-```
-
-Show how the graph now reflects test files and their relationships to source code.
-
-> 💡 Talking point: this step provides a clear before/after comparison of token usage with and without `rtk`, making the value of token optimization tangible.
+> 💡 Once the AI agent has completed the task refresh the Graphify knowledge graph.
 
 ---
 
