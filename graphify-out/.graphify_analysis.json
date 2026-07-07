@@ -1,0 +1,37 @@
+{
+  "communities": {
+    "0": [
+      "htmlcov_coverage_html_cb_dd2e7eb5",
+      "htmlcov_coverage_html_cb_dd2e7eb5_checkvisible",
+      "htmlcov_coverage_html_cb_dd2e7eb5_debounce",
+      "htmlcov_coverage_html_cb_dd2e7eb5_on_click",
+      "htmlcov_coverage_html_cb_dd2e7eb5_sortcolumn",
+      "htmlcov_coverage_html_cb_dd2e7eb5_updateheader"
+    ],
+    "1": [
+      "htmlcov_coverage_html_cb_dd2e7eb5_getcellvalue",
+      "htmlcov_coverage_html_cb_dd2e7eb5_rowcomparator"
+    ]
+  },
+  "cohesion": {
+    "0": 0.3333333333333333,
+    "1": 1.0
+  },
+  "gods": [
+    {
+      "id": "htmlcov_coverage_html_cb_dd2e7eb5_getcellvalue",
+      "label": "getCellValue()",
+      "degree": 2
+    },
+    {
+      "id": "htmlcov_coverage_html_cb_dd2e7eb5_rowcomparator",
+      "label": "rowComparator()",
+      "degree": 2
+    }
+  ],
+  "surprises": [],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}
